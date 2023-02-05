@@ -10,7 +10,20 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style="padding-top: 60px;">
+    <div class="container-fluid">
+      <nav class="navbar fixed-top">
+        <div class="container px-3">
+          <%= link_to "Home", plants_path, class: "navbar-brand" %>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

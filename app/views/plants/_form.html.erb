@@ -1,0 +1,67 @@
+<%= form_with model: @plant do |form| %>
+  <div class="row justify-content-center mt-3">
+    <div class="col-4">
+      <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, placeholder: "Bob the plant", class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :sync_key, class: "form-label" %>
+        <%= form.text_field :sync_key, class: "form-control" %>
+      </div>
+      <div class="mb-3 col-4">
+        <%= form.label :alarm_interval, class: "form-label" %>
+        <%= form.text_field :alarm_interval, value: "2", class: "form-control" %>
+      </div>
+      <div class="mb-3 col-4">
+        <%= form.label :dry_point, class: "form-label" %>
+        <%= form.text_field :dry_point, value: "27", class: "form-control" %>
+      </div>
+      <div class="mb-3 col-4">
+        <%= form.label :wet_point, class: "form-label" %>
+        <%= form.text_field :wet_point, value: "3", class: "form-control" %>
+      </div>
+      <div class="mb-3 col-4">
+        <%= form.label :pump_speed, class: "form-label" %>
+        <%= form.text_field :pump_speed, value: "0.5", class: "form-control" %>
+      </div>
+      <div class="mb-3 col-4">
+        <%= form.label :pump_time, class: "form-label" %>
+        <%= form.text_field :pump_time, value: "0.5", class: "form-control" %>
+      </div>
+      <div class="mb-3 col-4">
+        <%= form.label :warn_level, class: "form-label" %>
+        <%= form.text_field :warn_level, value: "0.2", class: "form-control" %>
+      </div>
+      <div class="mb-3 col-4">
+        <%= form.label :water_level, class: "form-label" %>
+        <%= form.text_field :water_level, value: "", class: "form-control" %>
+      </div>
+      <div class="mb-3 col-4">
+        <%= form.label :watering_delay, class: "form-label" %>
+        <%= form.text_field :watering_delay, value: "60", class: "form-control" %>
+      </div>
+
+      <div class="form-check">
+        <%= form.label :alarm_enable, class: "form-check-label" %>
+        <%= form.check_box :alarm_enable, checked: 'checked', class: "form-check-input" %>
+      </div>
+
+      <div class="form-check">
+        <%= form.label :auto_water, class: "form-check-label" %>
+        <%= form.check_box :auto_water, checked: '', class: "form-check-input" %>
+      </div>
+
+      <div class="my-3">
+        <%= form.submit "Create plant", :class => "btn btn-primary" %>
+      </div>
+
+      <div>
+        <% @plant.errors.full_messages.each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+<% end %>

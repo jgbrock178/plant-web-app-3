@@ -1,0 +1,38 @@
+<div class="row mb-3">
+  <div class="col">
+    <h2>Your plants</h2>
+  </div>
+  <div class="col text-end">
+    <%= link_to 'Add plant', new_plant_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      <% @plants.each do |plant| %>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to (plant.name.present? ? plant.name : 'Plant'), plant %></h5>
+              <span class="badge bg-secondary"><%= plant.sync_key %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+    <% if @plants.empty? %>
+      <div class="card border-0 pt-5 pb-5">
+        <div class="card-body text-center">
+          <h3>Oh no! There are no plants!</h3>
+          <%= link_to "Add a plant", new_plant_path, :class => "btn btn-primary" %>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>
